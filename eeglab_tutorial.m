@@ -2,10 +2,6 @@
 
 %% Run ONE section each time 
 
-% change path to EEGLab folder
-eeglab_path='/Users/home/Documents/GitHub/eeglab';
-current_path=cd(eeglab_path);
-
 % Open EEGlab interface
 eeglab
 
