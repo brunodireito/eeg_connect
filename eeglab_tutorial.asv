@@ -1,0 +1,2 @@
+% change path to EEGLab folder
+eeglab_path=+current_path=cd(eeglab_path)
