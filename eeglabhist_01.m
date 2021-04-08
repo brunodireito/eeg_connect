@@ -5,10 +5,10 @@
 
 %% load dataset
 
-path_data='C:\\Users\\Cris\\Desktop\\PROJ_ESTAG\\SUJEITOS\\';
+path_data='C:\\Program Files\\MATLAB\\R2020b\\eeglab2021.0\\sample_data\\';
 
 [ALLEEG EEG CURRENTSET ALLCOM] = eeglab;
-EEG = pop_loadset('filename','suj1.set','filepath',path_data);
+EEG = pop_loadset('filename','eeglab_data.set','filepath',path_data);
 [ALLEEG, EEG, CURRENTSET] = eeg_store( ALLEEG, EEG, 0 );
 
 
@@ -27,3 +27,15 @@ path_filtered='C:\\Program Files\\MATLAB\\R2020b\\eeglab2021.0\\sample_data\\'
 
 EEG = pop_saveset( EEG, 'filename','eeg_data_filtered.set','filepath',path_filtered);
 [ALLEEG EEG] = eeg_store(ALLEEG, EEG, CURRENTSET);
+
+%% re-referencing without eye channels and save
+
+path_ref='C:\\Program Files\\MATLAB\\R2020b\\eeglab2021.0\\sample_data\\';
+
+EEG = pop_reref( EEG, [],'exclude',[2 6] );
+[ALLEEG EEG CURRENTSET] = pop_newset(ALLEEG, EEG, 2,'setname','eegdata_res_noeye','savenew',path_ref,'gui','off');  %Edit/save EEG dataset structure information.
+EEG = eeg_checkset( EEG );
+% pop_saveh( ALLCOM, 'eeglabhist_dataset.m', 'C:\Program Files\MATLAB\R2020b\eeglab2021.0\sample_data\');
+% eeglab redraw; % Scans for non-empty datasets
+
+%% 
