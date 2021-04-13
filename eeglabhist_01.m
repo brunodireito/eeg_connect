@@ -5,10 +5,10 @@
 
 %% load dataset
 
-path_data='C:\\Program Files\\MATLAB\\R2020b\\eeglab2021.0\\sample_data\\';
+path_data='C:\\Users\\Cris\\Desktop\\PROJ_ESTAG\\SUJEITOS';
 
 [ALLEEG EEG CURRENTSET ALLCOM] = eeglab;
-EEG = pop_loadset('filename','eeglab_data.set','filepath',path_data);
+EEG = pop_loadset('filename','suj1.set','filepath',path_data);
 [ALLEEG, EEG, CURRENTSET] = eeg_store( ALLEEG, EEG, 0 );
 eeglab redraw;
 
@@ -20,7 +20,9 @@ eeglab redraw;
 EEG = pop_eegfiltnew(EEG, 'locutoff',1,'plotfreqz',1);
 [ALLEEG EEG CURRENTSET] = pop_newset(ALLEEG, EEG, 2,'setname','eeglab_data_HP','gui','off');
 display('Terminou criação do dataset');
-%lowpass below 40Hz + creates new dataset
+
+%% lowpass below 40Hz + creates new dataset
+
 EEG = pop_eegfiltnew(EEG, 'hicutoff',40,'plotfreqz',2);
 [ALLEEG EEG CURRENTSET] = pop_newset(ALLEEG, EEG, 3,'setname','eeglab_data_LP','gui','off'); 
 eeglab redraw;
@@ -47,7 +49,7 @@ eeglab redraw;
 
 EEG = pop_resample( EEG, 100); %downsampled dataset to 100 Hz
 EEG = eeg_checkset( EEG );
-
+eeglab redraw;
 
 %% removes bad channels (ex below: channel 1 (FPz))
 
