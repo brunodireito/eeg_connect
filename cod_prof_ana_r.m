@@ -87,11 +87,12 @@ foutputpath='C:\Users\Cris\Desktop\DATA_F\';  %diretoria em que guarda o dataset
 dummy=strcat(finputpath,'*.set'); %vai à diretoria do finput path e busca ficheiros do tipo .set
 pp=feval('dir',dummy);
 N=length(pp) %returns the length of the largest array dimension in pp. For vectors, the length is simply the number of elements. For arrays with more dimensions, the length is max(size(pp)). The length of an empty array is zero.
-LOW=-1;
-HIGH=1;
 
-S1='20'
-S2='21'
+LOW=-1; %this will be the left time limit for each epoch (-1 second)
+HIGH=1; %this will be the right time limit for each epoch (1 second)
+
+S1='20' %marker for wrong answers
+S2='21' %marker for right answers
 
 for n=1:1 %this cycle was initially <for 1:58> in order to process fifty-eight datasets with the name suj1 to suj 58. However, since there is currently only one such dataset, 'suj1.set', the cycle has been edited to <for 1:1>
     dummy=pp(n).name
@@ -106,6 +107,17 @@ for n=1:1 %this cycle was initially <for 1:58> in order to process fifty-eight d
     %estas linhas guardam%
 
 EEG = pop_saveset( EEG, 'filename',outputfilename);
-EEG = eeg_checkset( EEG );
+%EEG = eeg_checkset( EEG,'epoch') %I added this line to check, through scripting, if the EEG contains epoched or continuous data
+EEG = eeg_checkset(EEG, )
 end
 
+%% COUNTER FOR RIGHT ANSWERS(21) AND WRONG ANSWERS(20)
+
+
+%======CODE FOUND IN: https://sccn.ucsd.edu/pipermail/eeglablist/2009/002597.html======%
+% allevents = { EEG.event.type };
+% eventtypes = unique( allevents );
+% for i = 1:length(eventtypes)
+% n = strmatch(eventtypes{i}, allevents);
+% printf('There %d events of type '%s'\n", n, eventtypes{i});
+% end;
