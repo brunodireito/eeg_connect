@@ -108,7 +108,7 @@ for n=1:1 %this cycle was initially <for 1:58> in order to process fifty-eight d
 
 EEG = pop_saveset( EEG, 'filename',outputfilename);
 %EEG = eeg_checkset( EEG,'epoch') %I added this line to check, through scripting, if the EEG contains epoched or continuous data
-EEG = eeg_checkset(EEG, )
+%EEG = eeg_checkset(EEG, )
 end
 
 %% COUNTER FOR RIGHT ANSWERS(21) AND WRONG ANSWERS(20)
