@@ -105,7 +105,6 @@ for n=1:1 %this cycle was initially <for 1:58> in order to process fifty-eight d
     EEG = eeg_checkset( EEG );
     
     %estas linhas guardam%
-
 EEG = pop_saveset( EEG, 'filename',outputfilename);
 %EEG = eeg_checkset( EEG,'epoch') %I added this line to check, through scripting, if the EEG contains epoched or continuous data
 %EEG = eeg_checkset(EEG, ) %another testing line (meant to add extra
@@ -114,15 +113,40 @@ EEG = eeg_checkset( EEG );
 end
 
 %% COUNTER FOR RIGHT ANSWERS(21) AND WRONG ANSWERS(20)
+path_data_f='C:\Users\Cris\Desktop\DATA_F\';
+
+EEG = pop_loadset('filename','suj1.set','filepath',path_data_f);
+EEG = eeg_checkset(EEG.event) %added this line to check the evnt structure that contains the times and nature of experimental events recorded as occurring at data time points.
+%The output of the line above is a struct array with the fields: type,
+%latency, urevent and epoch
+
+%A structure array is a data type that groups related data using data containers called fields.
+%Each field can contain any type of data. Access data in a field using dot notation of the form structName.fieldName.
+allevents = { EEG.type } % In this case, we want to have access to the types of events in the EEG struct matrix. To that end
+%the field will be EEG.event.type where EEG is the name of the matrix
+%(structName) and .event.type is the field name followed by the su
+
+
+%==This line creates a table with the count of all events==%
+%tabulate(allevents)
+
+
+%enventtypes=unique(allevents) 
+
+
+%THIS DOESN'T WORK FOR CELL ARRAYS
+%R=sum(allevents(:)==21)
+%W=sum(allevents(:)==20)
+
 
 
 %======CODE FOUND IN: https://sccn.ucsd.edu/pipermail/eeglablist/2009/002597.html======%
-%**NOTE: THIS CODE DOES NOT WORK!!!
+%**NOTE: THIS CODE DOES NOT WORK!!! IT NEEDS TO BE ADAPTED 
 
-% allevents = { EEG.event.type }; %fetches all
+% allevents = { EEG.event.type }; %fetches all event types from 
 % eventtypes = unique( allevents );
 % 
-% for i = 20:length(eventtypes)
+% for i = 1:length(eventtypes)
 %     numbr = strmatch(eventtypes{i}, allevents);
 %     fprintf('There are %d events of type %s \n', numbr, eventtypes{i});
 % end
