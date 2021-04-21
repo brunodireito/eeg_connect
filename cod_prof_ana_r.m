@@ -125,25 +125,24 @@ EEG = eeg_checkset(EEG.event) %added this line to check the evnt structure that 
 allevents = { EEG.type } % In this case, we want to have access to the types of events in the EEG struct matrix. To that end
 %the field will be EEG.event.type where EEG is the name of the matrix
 %(structName) and .event.type is the field name followed by the su
-
+%NOTE: THE ELEMENTS IN THE CELLS ARE STRINGS!! NOT NUMBERS!!
 
 %==This line creates a table with the count of all events==%
-%tabulate(allevents)
+tabulate(allevents)
+
+enventtypes=unique(allevents) 
 
 
-%enventtypes=unique(allevents) 
-
-
-%THIS DOESN'T WORK FOR CELL ARRAYS
-%R=sum(allevents(:)==21)
-%W=sum(allevents(:)==20)
+%====THIS DOESN'T WORK FOR CELL ARRAYS====%
+%R=sum(allevents(:)=='21')
+%W=sum(allevents(:)=='20')
 
 
 
 %======CODE FOUND IN: https://sccn.ucsd.edu/pipermail/eeglablist/2009/002597.html======%
 %**NOTE: THIS CODE DOES NOT WORK!!! IT NEEDS TO BE ADAPTED 
 
-% allevents = { EEG.event.type }; %fetches all event types from 
+% allevents = { EEG.event.type }; %fetches all event types
 % eventtypes = unique( allevents );
 % 
 % for i = 1:length(eventtypes)
