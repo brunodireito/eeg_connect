@@ -119,7 +119,7 @@ end
 %======CODE FOUND IN: https://sccn.ucsd.edu/pipermail/eeglablist/2009/002597.html======%
 %**NOTE: THIS CODE DOES NOT WORK!!!
 
-% allevents = { EEG.event.type };
+% allevents = { EEG.event.type }; %fetches all
 % eventtypes = unique( allevents );
 % 
 % for i = 20:length(eventtypes)
