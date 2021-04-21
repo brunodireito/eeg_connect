@@ -33,3 +33,6 @@ EEG = eeg_checkset( EEG );
 eeglab redraw;
 
 
+%% ======SECTION MEANT FOR ICA=====%
+
+% More info is needed in order to make an ICA 

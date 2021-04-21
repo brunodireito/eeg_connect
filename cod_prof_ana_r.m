@@ -108,16 +108,21 @@ for n=1:1 %this cycle was initially <for 1:58> in order to process fifty-eight d
 
 EEG = pop_saveset( EEG, 'filename',outputfilename);
 %EEG = eeg_checkset( EEG,'epoch') %I added this line to check, through scripting, if the EEG contains epoched or continuous data
-%EEG = eeg_checkset(EEG, )
+%EEG = eeg_checkset(EEG, ) %another testing line (meant to add extra
+%keywords after the comma
+EEG = eeg_checkset( EEG );
 end
 
 %% COUNTER FOR RIGHT ANSWERS(21) AND WRONG ANSWERS(20)
 
 
 %======CODE FOUND IN: https://sccn.ucsd.edu/pipermail/eeglablist/2009/002597.html======%
+%**NOTE: THIS CODE DOES NOT WORK!!!
+
 % allevents = { EEG.event.type };
 % eventtypes = unique( allevents );
-% for i = 1:length(eventtypes)
-% n = strmatch(eventtypes{i}, allevents);
-% printf('There %d events of type '%s'\n", n, eventtypes{i});
-% end;
+% 
+% for i = 20:length(eventtypes)
+%     numbr = strmatch(eventtypes{i}, allevents);
+%     fprintf('There are %d events of type %s \n', numbr, eventtypes{i});
+% end
