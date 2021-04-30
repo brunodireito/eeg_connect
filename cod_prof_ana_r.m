@@ -116,7 +116,6 @@ end
 path_data_f='C:\Users\Cris\Desktop\DATA_F\';
 
 EEG = pop_loadset('filename','suj1.set','filepath',path_data_f);
-tic;
 EEG = eeg_checkset(EEG.event) %added this line to check the evnt structure that contains the times and nature of experimental events recorded as occurring at data time points.
 %The output of the line above is a struct array with the fields: type,
 %latency, urevent and epoch
@@ -130,13 +129,14 @@ allevents = { EEG.type } % In this case, we want to have access to the types of 
 
 %==This line creates a table with the count of all events==%
 %tabulate(allevents)
-%toc;
+
 
 %==These three lines return the amount of right and wrong answer markers==%
 enventtypes=unique(allevents) 
 right=nnz(strcmp(allevents,'21'))
 wrong=nnz(strcmp(allevents,'20'))
-toc;
+
+
 
 
 %====THIS DOESN'T WORK FOR CELL ARRAYS====%
