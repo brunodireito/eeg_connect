@@ -30,9 +30,6 @@ end
 
 
 
-
-
-
 %% 
 
 finputpath='C:\Users\Cris\Desktop\DATA\'; % diretoria em que busca o dataset a utilizar
