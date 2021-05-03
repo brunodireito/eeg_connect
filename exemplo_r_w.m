@@ -40,6 +40,8 @@ end
     a=[];
     RR=[];
     WW=[];
+    W=0;
+    R=0;
     for k=1:T
         a=EEG.epoch(k).eventtype;
         E=length(a);
