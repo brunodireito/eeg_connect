@@ -5,7 +5,7 @@
 finputpath='C:\Users\Cris\Desktop\DATA\'; % diretoria em que busca o dataset a utilizar
 foutputpath='C:\Users\Cris\Desktop\DATA_F\'; %diretoria em que guarda o dataset processado neste script
 %vai à diretoria do finput path e busca ficheiros do tipo .set e depois concatena string horizontalmente. Útil no ciclo for 1:1 abaixo
-dummy=strcat(finputpath,'*.set') 
+dummy=strcat(finputpath,'*.set'); 
 pp=feval('dir',dummy);
 
 N=length(pp);%returns the length of the largest array dimension in pp. 
@@ -29,12 +29,11 @@ for n=1:1
     %EEG.data=EEG.raw;
     % Remove BASELINE mean before stimulus
     EEG = pop_epoch( EEG, {  S3 S4 S5 S6  }, [LOW HIGH], 'newname', 'CNT file epochs epochs', 'epochinfo', 'yes');                                                  %faz as epochs centradas nos estímulos visuais dos subtestes 3 a 6. Os subtestes 1 e 2 são de treino, enquanto que o 7 é de memória
-    EEG = pop_loadset('filename',inputfilename);
-    EEG = eeg_checkset( EEG );
     EEG = pop_saveset( EEG, 'filename',outputfilename);
     EEG = eeg_checkset( EEG );
+end
 
-    [C,N,T]=size(EEG.data) %returns the dimensions of the EEG array, those being C (number of channels), N, , and T (number of trials)
+    [C,N,T]=size(EEG.data) %returns the dimensions of the EEG array, those being C (number of channels), N number of frames per epoch, and T (number of trials)
 
     Rlate=zeros(1,T);              % tempo da resposta
     RSequence= zeros(1,T);         % POSITIVO CERTA; NEGATIVA ERRADA  
@@ -90,4 +89,3 @@ for n=1:1
                 t(k)=0;
             end
     end
-end 
