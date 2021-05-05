@@ -1,6 +1,7 @@
-%Numero de respostas certas e erradas pou subteste e por ind
+%====NUMERO DE RESPOSTAS CERTAS POR SUBTESTE E POR ÍNDICE====%
 %RR_T=[RR_T; RR];
 %WW_T=[WW_T; WW];
+
 
 finputpath='C:\Users\Cris\Desktop\DATA\'; % diretoria em que busca o dataset a utilizar
 foutputpath='C:\Users\Cris\Desktop\DATA_F\'; %diretoria em que guarda o dataset processado neste script
@@ -12,7 +13,7 @@ N=length(pp);%returns the length of the largest array dimension in pp.
 %For vectors, the length is simply the number of elements. 
 %For arrays with more dimensions, the length is max(size(pp)). The length of an empty array is zero.
 
-%NOTA IMPORTANTE: os valores HIGH e LOW
+%NOTA IMPORTANTE: os valores HIGH e LOW podem levar a perda de informação 
 LOW=-1; 
 HIGH=1;
 %LATE=[];
