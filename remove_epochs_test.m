@@ -1,3 +1,5 @@
+%===TEST SCRIPT TO TURN EPOCHED DATA INTO CONTINUOUS DATA===%
+
 %% loads dataset
 path_data='C:\\Users\\Cris\\Desktop\\PROJ_ESTAG\\SUJEITOS\\';
 

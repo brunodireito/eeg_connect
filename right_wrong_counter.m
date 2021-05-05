@@ -12,7 +12,8 @@ N=length(pp);%returns the length of the largest array dimension in pp.
 %For vectors, the length is simply the number of elements. 
 %For arrays with more dimensions, the length is max(size(pp)). The length of an empty array is zero.
 
-LOW=-1;
+%NOTA IMPORTANTE: os valores HIGH e LOW
+LOW=-1; 
 HIGH=1;
 %LATE=[];
 S1='1';S2='2';S3='3';S4='4';S5='5';S6='6';S7='7';S20='20';S21='21'; %estas variáveis referem-se aos eventos dos subtestes (1, 2, 3, 4, 5, 6, 7) e às respostas certas e erradas (21, 20)
@@ -22,7 +23,7 @@ S1='1';S2='2';S3='3';S4='4';S5='5';S6='6';S7='7';S20='20';S21='21'; %estas vari�
 %This cycle was initially <for 1:58> in order to process fifty-eight datasets with the name suj1 to suj 58. 
 %However, since there is currently only one such dataset, 'suj1.set', the cycle has been edited to <for 1:1>
 for n=1:1 
-    dummy=pp(n).name
+    dummy=pp(n).name 
     inputfilename=strcat(finputpath,dummy);
     outputfilename=strcat(foutputpath,dummy);
     EEG = pop_loadset('filename',inputfilename);
