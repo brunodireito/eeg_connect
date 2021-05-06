@@ -10,7 +10,8 @@ addpath('functions')
 
 % paths.
 RAWDATA_PATH='C:\Users\bdireito\Desktop\Data\HCT';
-RAWDATA_PATH='/Volumes/ELEMENT/EEG_HCT/data/';
+RAWDATA_PATH='
+/Volumes/ELEMENT/EEG_HCT
 RESULTS_PATH='results';
 
 % variables.
@@ -40,7 +41,7 @@ fnames=dir(fullfile(RAWDATA_PATH,'*.set'));
 fprintf('Checking folder %s for .set files.\n', RAWDATA_PATH);
 
 if isempty(fnames)
-    fprintf('--- No .set available.\n')
+    fprintf('--- No .set available.')
 else
     fprintf('%d EEGLAB .sets available.\n',numel(fnames))
     for f=1:numel(fnames)
@@ -61,13 +62,13 @@ for p=1
         'filepath',fnames(p).folder);
     
     % filter data.
-    EEG = hctfilt_b(EEG, LOWCUTOFF, HIGHCUTOFF);
+    EEG = hctfilt(EEG, LOWCUTOFF, HIGHCUTOFF);
 
     % Resample data.    
     EEG = pop_resample( EEG, RESAMPLEFREQ);
     
     % Re-epoch around triggers.
-    EEG = triggerepoching_b(EEG, {TRI_ST3}, [-1 1]);
+    EEG = triggerepoching(EEG, {TRI_ST3}, [-1 1]);
     
     EEG = pop_saveset(EEG,...
             'filename',sprintf('%s_re-epoched%s',FILENAME, EXT),...
