@@ -32,7 +32,6 @@ for n=1:1
     dummyr=ppraw(n).name;
     RAWDATA_NAME=strcat(RAWDATA_PATH,dummyr);
     EEG = pop_loadset('filename',RAWDATA_NAME);
-    [ALLEEG EEG CURRENTSET] = pop_newset(ALLEEG, EEG, n,'setname',RAWDATA_NAME,'gui','off'); 
     eeglab redraw
 end
 
@@ -46,7 +45,7 @@ for n=1:1
     dummyres=ppres(n).name;
     RESULT_NAME=strcat(RESULTS_PATH,dummyres);
     EEG = pop_loadset('filename',RESULT_NAME);
-    [ALLEEG EEG CURRENTSET] = pop_newset(ALLEEG, EEG, n ,'setname',RESULT_NAME,'gui','off'); 
+    [ALLEEG EEG CURRENTSET] = pop_newset(ALLEEG, EEG, 3,'setname','eeglab_data_LP','gui','off'); 
     eeglab redraw
 end
 
