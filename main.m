@@ -21,9 +21,7 @@ ST6=6;
 ST7=7;
 
 
-%% Load data.
-
-% raw dataset load.
+%% raw dataset load.
 
 for n=1:1 
     dummyr=strcat(RAWDATA_PATH,'*.set'); 
@@ -37,7 +35,7 @@ for n=1:1
 end
 
 
-%processed dataset load
+%% processed dataset load
 
 for n=1:1 
     dummyres=strcat(RESULTS_PATH,'*.set'); 
