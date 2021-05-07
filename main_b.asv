@@ -10,8 +10,7 @@ addpath('functions')
 
 % paths.
 RAWDATA_PATH='C:\Users\bdireito\Desktop\Data\HCT';
-% RAWDATA_PATH='/Volumes/ELEMENT/EEG_HCT/data/';
-
+RAWDATA_PATH='/Volumes/ELEMENT/EEG_HCT/data/';
 RESULTS_PATH='results';
 
 % variables / TRIGGERS.
@@ -54,7 +53,7 @@ end
 % Organize data and call specific functions.
 
 % Load data.
-for p=2
+for p=1
     % Load data.
     PART_SET_PATH=fullfile(fnames(p).folder,fnames(p).name);
     [~, FILENAME, EXT] = fileparts(PART_SET_PATH);
@@ -78,11 +77,8 @@ for p=2
 end
 
 
-%% Count events
-n_responses=trigcountperepoch_b(EEG, TRI_CORRECT);
-
-
 %% Time-frequency example
+
 chan_to_plot='O1';
 chan_idx=find(strcmp({EEG.chanlocs.labels}, chan_to_plot));
 
