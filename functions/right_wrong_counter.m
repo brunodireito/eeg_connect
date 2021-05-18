@@ -30,7 +30,7 @@ for n=1:1
     EEG = pop_loadset('filename',inputfilename);
     %EEG.data=EEG.raw;
     % Remove BASELINE mean before stimulus
-    EEG = pop_epoch( EEG, {  S4  }, [LOW HIGH], 'newname', 'CNT file epochs epochs', 'epochinfo', 'yes');                                                  %faz as epochs centradas nos estímulos visuais dos subtestes 3 a 6. Os subtestes 1 e 2 são de treino, enquanto que o 7 é de memória
+    EEG = pop_epoch( EEG, {  S3 S4 S5 S6  }, [LOW HIGH], 'newname', 'CNT file epochs epochs', 'epochinfo', 'yes');                                                  %faz as epochs centradas nos estímulos visuais dos subtestes 3 a 6. Os subtestes 1 e 2 são de treino, enquanto que o 7 é de memória
     EEG = pop_saveset( EEG, 'filename',outputfilename);
     EEG = eeg_checkset( EEG );
 

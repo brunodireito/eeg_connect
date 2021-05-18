@@ -36,7 +36,6 @@ end
 
 
 %% processed dataset load
-
 for n=1:1 
     dummyres=strcat(RESULTS_PATH,'*.set'); 
     ppres=feval('dir',dummyres);
@@ -52,4 +51,3 @@ end
 % Organize data and call specific functions.
 
 disp(sum2numbers(1,2))
-
